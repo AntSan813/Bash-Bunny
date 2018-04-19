@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# Title:         Linux Reverse Shell
+# Author:        tuzzmaniandevil
+# Version:       1.2
+#
+# Runs a script in the background that creates a reverse shell connection to the configured address and then removes itself.
+#
+# Magenta..................Setup
+# Yellow single blink......Executing
+# Green....................Finished
+
+
+# Start Setup
+LED SETUP
+
+# Gets Switch Position
+GET SWITCH_POSITION
+
+# Set Attack Mode
+ATTACKMODE HID
+
+# Get the switch position
+GET SWITCH_POSITION
+
+# Open a terminal
+RUN UNITY xterm
+Q DELAY 1000
+#Q CTRL-ALT-t
+
+# Wait for terminal to open
+sleep 1
+LED STAGE1
+
+# Copy bash script
+Q STRING "ls ~/.ssh"
+Q ENTER
+
+# Quit the terminal
+LED CLEANUP
+
+
+LED FINISH

